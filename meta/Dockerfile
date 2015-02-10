@@ -4,7 +4,7 @@ MAINTAINER Jon Chen <bsd@voltaire.sh>
 ENV CPU native
 ENV USE_PCRE 1
 ENV USE_LINUX_SPLICE 1
-ENV HAPROXY_VER 1.5.8
+ENV HAPROXY_VER 1.5.11
 
 VOLUME ['/opt/bin/']
 
