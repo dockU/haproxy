@@ -8,13 +8,6 @@ ENV HAPROXY_VER 1.5.11
 
 VOLUME ['/opt/bin/']
 
-RUN /usr/bin/pacman -Syu --needed --noconfirm tar pcre
+ADD run.sh /usr/local/bin/build_haproxy
 
-ADD http://www.haproxy.org/download/1.5/src/haproxy-$HAPROXY_VER.tar.gz /tmp/haproxy.tar.gz
-RUN tar -C /opt/ -xvf /tmp/haproxy.tar.gz
-
-WORKDIR /opt/haproxy-$HAPROXY_VER/
-RUN make install
-
-RUN /bin/cp /opt/haproxy-$HAPROXY_VER/haproxy /opt/built/
-RUN /bin/rm -rf /opt/haproxy-$HAPROXY_VER /tmp/haproxy.tar.gz
+CMD ["/usr/local/bin/build_haproxy"]
